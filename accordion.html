@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Accordion</title>
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#1558bc;
+  padding:40px;
+}
+
+/* Container */
+.accordion{
+  width:600px;
+  margin:auto;
+  background:#1ab1f2;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  overflow:hidden;
+}
+
+/* Hide radio buttons */
+.accordion input{
+  display:none;
+}
+
+/* Label (Header) */
+.accordion label{
+  display:block;
+  padding:18px 20px;
+  background:#2c3e50;
+  color:#fff;
+  cursor:pointer;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  transition:0.3s;
+  position:relative;
+}
+
+/* Hover effect */
+.accordion label:hover{
+  background:#34495e;
+}
+
+/* Plus/Minus icon */
+.accordion label::after{
+  content:"+";
+  position:absolute;
+  right:20px;
+  font-size:20px;
+  transition:0.3s;
+}
+
+/* Content */
+.accordion .content{
+  max-height:0;
+  overflow:hidden;
+  background:#f9fafc;
+  transition:max-height 0.4s ease, padding 0.4s ease;
+  padding:0 20px;
+}
+
+/* Open state */
+.accordion input:checked + label{
+  background:#1abc9c;
+}
+
+.accordion input:checked + label::after{
+  content:"-";
+}
+
+/* Show content when checked */
+.accordion input:checked + label + .content{
+  max-height:200px;
+  padding:15px 20px;
+}
+
+/* Smooth text */
+.content p{
+  margin:0;
+  color:#333;
+  line-height:1.6;
+}
+</style>
+</head>
+<body>
+
+<div class="accordion">
+    <h2>Accordion</h2>
+
+  <!-- Item 1 -->
+  <input type="radio" name="acc" id="a1" checked>
+  <label for="a1">What is HTML?</label>
+  <div class="content">
+    <p>HTML web pages banane ke liye use hota hai. Yeh structure provide karta hai website ko.</p>
+  </div>
+
+  <!-- Item 2 -->
+  <input type="radio" name="acc" id="a2">
+  <label for="a2">What is CSS?</label>
+  <div class="content">
+    <p>CSS website ko design aur styling deta hai jaise colors, layout aur animations.</p>
+  </div>
+
+  <!-- Item 3 -->
+  <input type="radio" name="acc" id="a3">
+  <label for="a3">What is JavaScript?</label>
+  <div class="content">
+    <p>JavaScript website ko interactive banata hai, jaise buttons, forms aur animations control karna.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
